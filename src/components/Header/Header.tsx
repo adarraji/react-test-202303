@@ -5,11 +5,9 @@ import styles from "./header.module.scss";
 export const Header = () => {
     return (
         <div className={styles.header}>
-            <div className={styles.container}>
-                <div className={styles.userContainer}>
-                    <FontAwesomeIcon icon={faStar} className={styles.icon} />
-                    <span>Joseph Smith</span>
-                </div>
+            <div className={styles.top}>
+                <FontAwesomeIcon icon={faStar} className={styles.icon} />
+                <span>Joseph Smith</span>
                 <button>New Order</button>
             </div >
         </div>

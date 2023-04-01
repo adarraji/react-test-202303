@@ -2,59 +2,43 @@
     display: flex;
     justify-content: center;
 
-
-    .container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        gap: 732px;
+    .top {
         width: 100%;
         max-width: 1165px;
         max-height: 1400px;
-        border: 1px solid gray;
+        position: relative;
         padding: 16px 15px;
 
-        .userContainer {
-            display: flex;
-            align-items: center;
-            // gap: 10px;
-            // height: 40px;
-            // width: 218px;
 
+        .icon {
+            position: absolute;
+            top: 24px;
+            left: 15px;
+            width: 28px;
+            height: 25px;
+            text-align: left;
+            letter-spacing: 0px;
+            color: #AAAAAA;
+            opacity: 1;
 
-            .icon {
-                position: absolute;
-                top: 24px;
-                left: 15px;
-                width: 28px;
-                height: 25px;
-                text-align: left;
-                font: normal normal 300 25px/30px Font Awesome 5 Pro;
-                letter-spacing: 0px;
-                color: #AAAAAA;
-                opacity: 1;
+        }
 
-            }
-
-            span {
-                text-align: left;
-                font: normal normal 600 25px/34px 'Open Sans';
-                letter-spacing: 0px;
-                color: #000000;
-                opacity: 1;
-                position: absolute;
-                top: 20px;
-                left: 60px;
-                width: 158px;
-                height: 34px;
-            }
-
-
+        span {
+            text-align: left;
+            font: normal normal 600 25px/34px 'Open Sans';
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            width: 158px;
+            height: 34px;
         }
 
         button {
             color: white;
+            position: absolute;
             top: 16px;
             left: 950px;
             width: 200px;
@@ -62,6 +46,9 @@
             background: #404040 0% 0% no-repeat padding-box;
             border-radius: 4px;
             opacity: 1;
+            font: normal normal normal 18px/21px Arial;
         }
     }
+
+    .buttom {}
 }
