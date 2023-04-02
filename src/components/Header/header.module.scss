@@ -3,8 +3,11 @@
     width: 100%;
     height: 212px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     .top {
-        border: 1px solid red;
         width: 100%;
         height: 72px;
         display: flex;
@@ -12,7 +15,6 @@
         align-items: center;
 
         .user {
-            border: 1px solid green;
             display: flex;
             align-items: center;
 
@@ -46,6 +48,12 @@
             color: #FCFEFF;
             opacity: 1;
         }
+    }
+
+    .bottom {
+        border: 1px solid purple;
+        width: 100%;
+        height: 140px;
     }
 
 }
