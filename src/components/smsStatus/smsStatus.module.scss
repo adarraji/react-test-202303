@@ -1,0 +1,42 @@
+.smsStatus {
+    width: 225px;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+
+    .statusCotainer {
+        background: #EDFFED 0% 0% no-repeat padding-box;
+        width: 100%;
+        height: 101px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        .header {
+            margin-top: 7px;
+            text-align: left;
+            font: normal normal normal 12px/17px Open Sans;
+            color: #333333;
+        }
+
+        .status {
+            margin-top: 6px;
+            text-align: left;
+            font: normal normal 600 50px/68px Open Sans;
+            color: #333333;
+        }
+    }
+
+    .date {
+        background: #D2D2D2 0% 0% no-repeat padding-box;
+        width: 100%;
+        height: 24px;
+        text-align: left;
+        font: normal normal 600 10px/14px Open Sans;
+        color: #333333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

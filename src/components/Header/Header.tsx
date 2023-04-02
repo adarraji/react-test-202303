@@ -2,6 +2,7 @@ import styles from "./header.module.scss";
 import { UserImage } from "../userImage/UserImage";
 import { UserInfo } from "../userInfo/UserInfo";
 import { CommActivity } from "../commActivity/CommActivity";
+import { SmsStatus } from "../smsStatus/SmsStatus";
 
 export const Header = () => {
     return (
@@ -17,6 +18,7 @@ export const Header = () => {
                 <UserImage />
                 <UserInfo />
                 <CommActivity />
+                <SmsStatus />
             </div>
         </div >
     )
