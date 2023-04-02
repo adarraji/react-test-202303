@@ -1,6 +1,6 @@
 .commActivity {
-    background-color: lime;
-    border: 1px red solid;
+
+
     width: 559px;
     height: 125px;
 
@@ -19,6 +19,41 @@
         }
     }
 
-    .info {}
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+
+        .activityCotainer {
+            flex: 1;
+
+
+            display: flex;
+            flex-direction: column;
+
+            .number {
+
+                width: 100%;
+                height: 71px;
+                background: #EDF5FF 0% 0% no-repeat padding-box;
+                font: normal normal 600 50px/68px 'Open Sans';
+                text-align: center;
+                color: #333333;
+            }
+
+            .activity {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 24px;
+                background: #D2D2D2 0% 0% no-repeat padding-box;
+                font: normal normal 600 10px/14px 'Open Sans';
+                text-align: left;
+                color: #333333;
+            }
+        }
+    }
 
 }
