@@ -1,15 +1,6 @@
 .header {
-    display: flex;
-    justify-content: center;
 
     .top {
-        width: 100%;
-        max-width: 1165px;
-        max-height: 1400px;
-        position: relative;
-        padding: 16px 15px;
-
-
         .icon {
             position: absolute;
             top: 24px;
@@ -50,5 +41,4 @@
         }
     }
 
-    .buttom {}
 }

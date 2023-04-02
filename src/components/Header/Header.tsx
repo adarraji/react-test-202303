@@ -9,8 +9,9 @@ export const Header = () => {
                 <FontAwesomeIcon icon={faStar} className={styles.icon} />
                 <span>Joseph Smith</span>
                 <button>New Order</button>
-            </div >
+            </div>
+            
         </div>
-    ) 
+    )
 
 }
