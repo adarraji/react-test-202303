@@ -1,6 +1,7 @@
 import './App.css';
 import { Header } from './components/header/Header';
 import styles from "./app.module.scss";
+import "./fontawesome/css/all.css"
 
 function App() {
   return (
