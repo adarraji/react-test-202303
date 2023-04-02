@@ -2,17 +2,16 @@
     width: 239px;
     height: 125px;
     background: #EDF5FF 0% 0% no-repeat padding-box;
-    padding-left: 12px;
-    padding-top: 9px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+
 
     div {
+        margin-left: 12px;
+        margin-top: 6px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 12px;
     }
 
     i {
@@ -22,6 +21,7 @@
     }
 
     span {
+        margin-left: 12px;
         text-align: left;
         font: normal normal normal 12px/17px 'Open Sans';
         letter-spacing: 0px;
