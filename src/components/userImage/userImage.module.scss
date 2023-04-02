@@ -1,0 +1,27 @@
+.userImage {
+    width: 97px;
+    height: 125px;
+    background: #EDF5FF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    .icon {
+        width: 63px;
+        height: 72px;
+        color: #FFFFFF;
+        opacity: 1;
+        margin: 21px, 17px, 0px, 17px;
+    }
+
+    span {
+        text-align: left;
+        font: normal normal normal 10px/11px Arial;
+        letter-spacing: 0px;
+        color: #333333;
+        opacity: 1;
+    }
+}

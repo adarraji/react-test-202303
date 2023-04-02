@@ -1,6 +1,7 @@
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./header.module.scss";
+import { UserImage } from "../userImage/UserImage";
 
 export const Header = () => {
     return (
@@ -13,6 +14,7 @@ export const Header = () => {
                 <button>New Order</button>
             </div>
             <div className={styles.bottom}>
+                <UserImage />
             </div>
         </div >
     )
