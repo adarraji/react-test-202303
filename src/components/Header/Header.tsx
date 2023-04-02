@@ -6,12 +6,15 @@ export const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.top}>
-                <FontAwesomeIcon icon={faStar} className={styles.icon} />
-                <span>Joseph Smith</span>
+                <div className={styles.user}>
+                    <FontAwesomeIcon icon={faStar} className={styles.icon} />
+                    <span>Joseph Smith</span>
+                </div>
                 <button>New Order</button>
             </div>
-            
-        </div>
+            <div className={styles.bottom}>
+            </div>
+        </div >
     )
 
 }
