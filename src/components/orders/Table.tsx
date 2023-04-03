@@ -32,7 +32,7 @@ export const Table = () => {
             <table>
                 <thead>
                     <tr>
-                        <td>Header 1</td>
+                        <td >Header 1</td>
                         <td>Header 2</td>
                         <td>Header 3</td>
                         <td>Header 4</td>

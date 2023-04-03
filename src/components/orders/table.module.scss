@@ -1,16 +1,29 @@
 .table {
     border: 1px solid black;
     height: 1064px;
+    width: 100%;
     margin: 0px 15px;
 
 
-    tbody {
-        tr {
-            &:nth-child(even) {
-                background: #F2F4F7 0% 0% no-repeat padding-box;
-                opacity: 1;
+    table {
+        border-spacing: 0px;
+
+        tbody {
+
+
+            tr {
+                &:nth-child(even) {
+                    background: #F2F4F7 0% 0% no-repeat padding-box;
+                    opacity: 1;
+                }
+
+                td {
+                    &:nth-child(1) {
+                        border: 1px solid gray;
+                        width: 155px;
+                    }
+                }
             }
         }
     }
-
 }
