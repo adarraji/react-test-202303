@@ -1,4 +1,5 @@
 import { SubTabs } from "./SubTabs";
+import { Table } from "./Table";
 import { Tabs } from "./Tabs";
 import styles from "./orders.module.scss";
 
@@ -7,6 +8,7 @@ export const Orders = () => {
         <div className={styles.orders}>
             <Tabs />
             <SubTabs />
+            <Table />
         </div>
     )
 }
