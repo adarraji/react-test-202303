@@ -2,4 +2,15 @@
     border: 1px solid black;
     height: 1064px;
     margin: 0px 15px;
+
+
+    tbody {
+        tr {
+            &:nth-child(even) {
+                background: #F2F4F7 0% 0% no-repeat padding-box;
+                opacity: 1;
+            }
+        }
+    }
+
 }
