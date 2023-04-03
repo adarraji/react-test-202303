@@ -1,4 +1,4 @@
-import { Tabs } from "../tabs/Tabs";
+import { Tabs } from "./Tabs";
 import styles from "./orders.module.scss";
 
 export const Orders = () => {
