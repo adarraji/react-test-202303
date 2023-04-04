@@ -32,37 +32,47 @@ export const Table = () => {
             <table>
                 <thead>
                     <tr>
-                        <td >Header 1</td>
-                        <td>Header 2</td>
-                        <td>Header 3</td>
-                        <td>Header 4</td>
-                        <td>Header 5</td>
+                        <td >DATE & TIME</td>
+                        <td>SUBJECT</td>
+                        <td>COMMUNICATION TYPE</td>
+                        <td>ORDER #</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>row 11</td>
-                        <td>row 12</td>
-                        <td>row 13</td>
-                        <td>row 14</td>
-                        <td>row 15</td>
-                    </tr>
-                    <tr>
-                        <td>row 21</td>
-                        <td>row 22</td>
-                        <td>row 23</td>
-                        <td>row 24</td>
-                        <td>row 25</td>
-                    </tr>
-                    <tr>
-                        <td>row 31</td>
-                        <td>row 32</td>
-                        <td>row 33</td>
-                        <td>row 34</td>
-                        <td>row 35</td>
-                    </tr>
-
-
+                    {
+                        data.map((order, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td >
+                                        <div>
+                                            <div className={styles.date}>{order.sent_dt}</div>
+                                            <div>{order.sent_tm}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div >
+                                            <div className={styles.title}>{order.subject.title}</div>
+                                            <div> {order.subject.email}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            {order.type}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            {order.order_id}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button>RESEND</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
 
                 </tbody>
             </table>
