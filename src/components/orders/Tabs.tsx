@@ -28,11 +28,11 @@ export const Tabs = (props: TabsProps) => {
     return (
         <div className={styles.tabs}>
             <div className={styles.tabsContainer}>
-                {
+                {/* {
                     keys.map((key, i) => {
                         return <div key={i}>{key}</div>
                     })
-                }
+                } */}
                 <div>ORDERS A</div>
                 <div>ORDERS AA</div>
                 <div>ORDERS AAA</div>
