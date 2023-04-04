@@ -1,6 +1,20 @@
-import styles from "./tabs.module.scss"
+import styles from "./tabs.module.scss";
 
-export const Tabs = () => {
+type TabsProps = {
+    orders: {
+        id: number
+        order_id: number
+        sent_dt: string
+        sent_tm: string
+        subject: {
+            title: string
+            email: string
+        }
+        type: string
+    }[]
+}
+
+export const Tabs = (props: TabsProps) => {
     return (
         <div className={styles.tabs}>
             <div className={styles.tabsContainer}>
