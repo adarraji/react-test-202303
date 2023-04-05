@@ -5,10 +5,32 @@ import { Tabs } from "./Tabs";
 import styles from "./orders.module.scss";
 import { useEffect, useState } from "react";
 
-export const Orders = () => {    
 
-    const [orders, setOrders] = useState({});
+type OrdersData = {
+    orders: {} | {
+        orders_A: []
+        orders_AA: []
+        orders_AAA: {
+            sent: {
+                id: number
+                order_id: number
+                sent_dt: string
+                sent_tm: string
+                subject: {
+                    title: string
+                    email: string
+                }
+                type: string
+            }[]
+        }
+        orders_B: []
+        orders_C: []
+    }
+}
 
+export const Orders = () => {
+    const [orders, setOrders] = useState<OrdersData | {}>({});
+    
     useEffect(() => {
         getOrders()
     }, [])
@@ -25,8 +47,6 @@ export const Orders = () => {
         }
 
     }
-
-
 
     return (
         <div className={styles.orders}>
