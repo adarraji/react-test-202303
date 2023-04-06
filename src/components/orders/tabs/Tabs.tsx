@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styles from "./tabs.module.scss"
-import { TabTitle, TabTitleProps } from "./tabTitle/TabTitle"
-import { TabPaneProps } from "./tabPane/TabPane"
+import { TabTitle, TabTitleProps } from "../tabTitle/TabTitle"
+import { TabPaneProps } from "../tabPane/TabPane"
 
 type TabProps = {
     children: React.ReactElement<TabPaneProps>[]

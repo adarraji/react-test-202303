@@ -2,7 +2,7 @@ import axios from "axios";
 import { Table } from "./table/Table";
 import styles from "./orders.module.scss";
 import { useEffect, useState } from "react";
-import Tabs from "./Tabs";
+import Tabs from "./tabs/Tabs";
 import { TabPane } from "./tabPane/TabPane";
 
 
