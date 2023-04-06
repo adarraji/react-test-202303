@@ -1,9 +1,9 @@
 import axios from "axios";
-import { SubTabs } from "./SubTabs";
-import { Table } from "./Table";
-import { Tabs } from "./Tabs";
+import { Table } from "./table/Table";
 import styles from "./orders.module.scss";
 import { useEffect, useState } from "react";
+import Tabs from "./Tabs";
+import { TabPane } from "./tabPane/TabPane";
 
 
 type OrdersData = {
@@ -30,7 +30,7 @@ type OrdersData = {
 
 export const Orders = () => {
     const [orders, setOrders] = useState<OrdersData | {}>({});
-    
+
     useEffect(() => {
         getOrders()
     }, [])
@@ -50,9 +50,18 @@ export const Orders = () => {
 
     return (
         <div className={styles.orders}>
-            <Tabs orders={orders} />
-            <SubTabs />
-            <Table />
+            <Tabs>
+                <TabPane title="Basic">
+                    {/* <div>Basic</div> */}
+                    <Table />
+                </TabPane>
+                <TabPane title="Standard">
+                    <div>Standard</div>
+                </TabPane>
+                <TabPane title="Premium">
+                    <div>Premium</div>
+                </TabPane>
+            </Tabs>
         </div>
     )
 }

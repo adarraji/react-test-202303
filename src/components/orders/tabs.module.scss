@@ -1,39 +1,9 @@
 .tabs {
-    height: 81px;
-    margin: 0px 15px;
-    background: rgba(242, 242, 242, 1) 0% 0% no-repeat padding-box;
-    opacity: 1;
-    position: relative;
-    border-bottom: 2px solid #4D4D4D;
-    border-top: 1px solid #D4D4D4;
-    margin-bottom: 2px;
+    ul {
 
-    .tabsContainer {
-        height: 40px;
-        width: 833px;
-        position: absolute;
-        top: 40px;
-        left: 151px;
-
+        list-style: none;
         display: flex;
-        justify-content: space-between;
-
-        div {
-            width: 165px;
-            height: 40px;
-
-            background: rgba(210, 210, 210, 1) 0% 0% no-repeat padding-box;
-            opacity: 1;
-
-            text-align: center;
-            font: normal normal bold 12px/14px Arial;
-            letter-spacing: 0px;
-            color: rgba(58, 58, 58, 1);
-            opacity: 1;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        justify-content: center;
+        padding: 0;
     }
 }
