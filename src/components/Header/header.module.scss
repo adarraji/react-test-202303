@@ -57,3 +57,28 @@
     }
 
 }
+
+.laoder {
+    position: absolute;
+    width: 1165px;
+    height: 1140px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 999;   
+
+    .close {
+        color: #EEEEEE;
+        font-size: 35px;
+        position: absolute;
+        top: 30px;
+        left: 1113px;
+    }
+
+    .loading {
+        color: #EEEEEE;
+        font-size: 75px;
+        position: absolute;
+        top: 626px;
+        left: 545px;
+    }
+}

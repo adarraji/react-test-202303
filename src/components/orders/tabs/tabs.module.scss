@@ -9,7 +9,7 @@
         height: 81px;
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: flex-end;
         background: #F2F2F2 0% 0% no-repeat padding-box;
         opacity: 1;
         border-bottom: 2px solid #4D4D4D;
@@ -37,8 +37,8 @@
         height: 41px;
         display: flex;
         flex-direction: column;
-        justify-content: end;
-        align-items: start;
+        justify-content: flex-end;
+        align-items: flex-start;
         background: #7D869A 0% 0% no-repeat padding-box;
         opacity: 1;
         border: none;

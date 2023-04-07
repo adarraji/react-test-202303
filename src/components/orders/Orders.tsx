@@ -4,6 +4,8 @@ import styles from "./orders.module.scss";
 import { useEffect, useState } from "react";
 import Tabs from "./tabs/Tabs";
 import { TabPane } from "./tabs/tabPane/TabPane";
+import { ErrorsTable } from "./errorsTable/ErrorsTable";
+
 
 type OrdersData = {
     orders_A: []
@@ -62,6 +64,7 @@ export const Orders = () => {
                             <Table data={orders?.orders_AAA?.sent ? orders.orders_AAA.sent : []} />
                         </TabPane>
                         <TabPane title="ERRORS">
+                            <ErrorsTable />
                         </TabPane>
                     </Tabs>
                 </TabPane>
