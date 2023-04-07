@@ -1,32 +1,20 @@
-import styles from "./table.module.scss"
+import styles from "./sentTable.module.scss";
 
-export const Table = () => {
-
-    const data = [
-        {
-            "id": 1,
-            "order_id": 12345546,
-            "sent_dt": "2018-04-14",
-            "sent_tm": "16:19:00",
-            "subject": {
-                "title": "Thank You Bonus",
-                "email": "joe.smith@testemail.com"
-            },
-            "type": "Promotion Email"
-        },
-        {
-            "id": 2,
-            "order_id": 12345546,
-            "sent_dt": "2018-04-14",
-            "sent_tm": "16:19:00",
-            "subject": {
-                "title": "Receipt #12345546",
-                "email": "joe.smith@testemail.com"
-            },
-            "type": "Order Receipt Email"
+type TableProps = {
+    data: [] | {
+        id: number
+        order_id: number
+        sent_dt: string
+        sent_tm: string
+        subject: {
+            title: string
+            email: string
         }
-    ]
+        type: string
+    }[]
+}
 
+export const Table = (props: TableProps) => {
     return (
         <div className={styles.table}>
             <table>
@@ -41,7 +29,7 @@ export const Table = () => {
                 </thead>
                 <tbody>
                     {
-                        data.map((order, i) => {
+                        props.data.map((order, i) => {
                             return (
                                 <tr key={i}>
                                     <td >

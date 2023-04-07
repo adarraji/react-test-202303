@@ -1,0 +1,49 @@
+@mixin buttonStyles {
+    width: 165px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font: normal normal bold 12px/14px Arial;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+@mixin subButtonStyles {
+    border-radius: 11px;
+    opacity: 1;
+    text-align: center;
+    font: normal normal normal 10px/11px Arial;
+    letter-spacing: 0px;
+}
+
+
+.title button {
+    @include buttonStyles;
+    background: #D2D2D2 0% 0% no-repeat padding-box;
+    color: #3A3A3A;
+}
+
+.title.active button {
+    @include buttonStyles;
+    background: #3A3A3A 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+}
+
+
+.title.subTab button {
+    @include subButtonStyles;
+    width: 83px;
+    height: 23px;
+    background-color: transparent;
+    color: #FFFFFF;
+
+}
+
+.title.active.subTab button {
+    @include subButtonStyles;
+    width: 67px;
+    height: 23px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    color: #3A3A3A;
+}
+
