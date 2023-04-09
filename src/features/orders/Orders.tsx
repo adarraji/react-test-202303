@@ -1,6 +1,6 @@
 import styles from "./orders.module.scss";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { useAppDispatch } from "../../app/hooks"
 import { fetchOrders } from './ordersSlice'
 
 import Tabs from "./tabs/Tabs";
@@ -16,7 +16,7 @@ export const Orders = () => {
 
     useEffect(() => {
         dispatch(fetchOrders())
-    }, [])
+    }, [dispatch])
 
 
     return (

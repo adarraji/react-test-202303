@@ -4,7 +4,7 @@ import { UserInfo } from "./userInfo/UserInfo";
 import { CommActivity } from "./commActivity/CommActivity";
 import { SmsStatus } from "./smsStatus/SmsStatus";
 import { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { useAppDispatch } from "../../app/hooks"
 import { fetchSummary } from "./headerSlice";
 
 
@@ -17,7 +17,7 @@ export const Header = () => {
 
     useEffect(() => {
         dispatch(fetchSummary())
-    }, [])
+    }, [dispatch])
 
     return (
         <div className={styles.header}>

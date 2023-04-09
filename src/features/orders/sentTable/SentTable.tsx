@@ -1,5 +1,5 @@
 import styles from "./sentTable.module.scss";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks"
+import {  useAppSelector } from "../../../app/hooks"
 
 export const SentTable = () => {
     // const dispatch = useAppDispatch()
