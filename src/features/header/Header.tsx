@@ -1,13 +1,23 @@
 import styles from "./header.module.scss";
-import { UserImage } from "./UserImage";
-import { UserInfo } from "./UserInfo";
-import { CommActivity } from "./CommActivity";
-import { SmsStatus } from "./SmsStatus";
-import { useState } from "react";
+import { UserImage } from "./userImage/UserImage";
+import { UserInfo } from "./userInfo/UserInfo";
+import { CommActivity } from "./commActivity/CommActivity";
+import { SmsStatus } from "./smsStatus/SmsStatus";
+import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { fetchSummary } from "./headerSlice";
+
 
 export const Header = () => {
 
     const [openLoader, setOpenLoader] = useState(false);
+
+    const dispatch = useAppDispatch()
+    // const summary = useAppSelector(state => state.header.summary)
+
+    useEffect(() => {
+        dispatch(fetchSummary())
+    }, [])
 
     return (
         <div className={styles.header}>

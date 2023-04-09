@@ -1,28 +1,31 @@
 
 import styles from "./userInfo.module.scss";
+import { useAppSelector } from "../../../app/hooks"
 
 export const UserInfo = () => {
+  const summary = useAppSelector(state => state.header.summary)
+
   return (
     <div className={styles.userInfo}>
       <div>
         <i className="fal fa-user" />
-        <span>#12345678</span>
+        <span>#{summary.id}</span>
       </div>
       <div>
         <i className="fal fa-mobile" />
-        <span>248-555-3000</span>
+        <span>{summary.mobile_phone}</span>
       </div>
       <div>
         <i className="fal fa-building" />
-        <span>248-555-2000</span>
+        <span>{summary.work_phone}</span>
       </div>
       <div>
         <i className="fal fa-house" />
-        <span>248-555-1000</span>
+        <span>{summary.home_phone}</span>
       </div>
       <div>
         <i className="fal fa-at" />
-        <span>joe.smith@testemail.com</span>
+        <span>{summary.email}</span>
       </div>
 
     </div>

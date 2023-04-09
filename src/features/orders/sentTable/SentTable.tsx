@@ -1,20 +1,10 @@
 import styles from "./sentTable.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 
-type TableProps = {
-    data: [] | {
-        id: number
-        order_id: number
-        sent_dt: string
-        sent_tm: string
-        subject: {
-            title: string
-            email: string
-        }
-        type: string
-    }[]
-}
+export const SentTable = () => {
+    // const dispatch = useAppDispatch()
+    const sent = useAppSelector(state => state.order.orders.orders_AAA?.sent)
 
-export const Table = (props: TableProps) => {
     return (
         <div className={styles.table}>
             <table>
@@ -29,7 +19,8 @@ export const Table = (props: TableProps) => {
                 </thead>
                 <tbody>
                     {
-                        props.data.map((order, i) => {
+                        sent &&
+                        sent.map((order, i) => {
                             return (
                                 <tr key={i}>
                                     <td >

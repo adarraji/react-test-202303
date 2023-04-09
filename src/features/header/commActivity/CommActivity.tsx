@@ -1,6 +1,8 @@
 import styles from "./commActivity.module.scss";
+import { useAppSelector } from "../../../app/hooks"
 
 export const CommActivity = () => {
+    const summary = useAppSelector(state => state.header.summary)
     return (
         <div className={styles.commActivity}>
             <div className={styles.header}>
@@ -8,15 +10,15 @@ export const CommActivity = () => {
             </div>
             <div className={styles.info}>
                 <div className={styles.activityCotainer}>
-                    <div className={styles.number}>6</div>
+                    <div className={styles.number}>{summary.activity?.sms}</div>
                     <div className={styles.activity}>SMS</div>
                 </div>
                 <div className={styles.activityCotainer}>
-                    <div className={styles.number}>4</div>
+                    <div className={styles.number}>{summary.activity?.email}</div>
                     <div className={styles.activity}>EMAIL</div>
                 </div>
                 <div className={styles.activityCotainer}>
-                    <div className={styles.number}>1</div>
+                    <div className={styles.number}>{summary.activity?.orders}</div>
                     <div className={styles.activity}>ORDERS</div>
                 </div>
             </div>
