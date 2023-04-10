@@ -1,6 +1,6 @@
 import styles from "./sentTable.module.scss";
 import { useAppSelector } from "../../../app/hooks"
-import { useCallback, useState, MouseEventHandler } from "react";
+import { useCallback, useState } from "react";
 
 export const SentTable = () => {
 
@@ -13,31 +13,29 @@ export const SentTable = () => {
     const [sortKey, setSortkey] = useState<SortKeys>("id")
     const [sortOrder, setSortOrder] = useState<SortOrder>("asc")
 
-    type SortData = {
-        tableData: Data;
-        sortKey: SortKeys;
-        reverse: boolean;
-    }
+    const sortedData = useCallback(() => {
 
-    const sortData = ({ tableData, sortKey, reverse, }: {
-        tableData: Data;
-        sortKey: SortKeys;
-        reverse: boolean;
-    }) => {
-        if (!sortKey) return tableData;
+        const sortData = ({ tableData, sortKey, reverse, }: {
+            tableData: Data;
+            sortKey: SortKeys;
+            reverse: boolean;
+        }) => {
+            if (!sortKey) return tableData;
 
-        const sortedData = [...data].sort((a, b) => {
-            return a[sortKey] > b[sortKey] ? 1 : -1;
-        });
+            const sortedData = [...data].sort((a, b) => {
+                return a[sortKey] > b[sortKey] ? 1 : -1;
+            });
 
-        if (reverse) {
-            return sortedData.reverse();
+            if (reverse) {
+                return sortedData.reverse();
+            }
+
+            return sortedData;
         }
 
-        return sortedData;
-    }
+        return sortData({ tableData: data, sortKey, reverse: sortOrder === "desc" })
 
-    const sortedData = useCallback(() => sortData({ tableData: data, sortKey, reverse: sortOrder === "desc" }), [data, sortKey, sortOrder])
+    }, [data, sortKey, sortOrder])
 
     const headers: { key: SortKeys; label: string }[] = [
         { key: "sent_dt", label: "DATE & TIME" },
