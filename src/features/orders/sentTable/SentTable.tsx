@@ -4,7 +4,8 @@ import { useCallback, useState } from "react";
 
 export const SentTable = () => {
 
-    const data = useAppSelector(state => state.order.orders.orders_AAA.sent)
+    const sent = useAppSelector(state => state.order.orders.orders_AAA.sent)
+    const data = [...sent, ...sent]
 
     type Data = typeof data
     type SortKeys = keyof Data[0]
@@ -63,6 +64,7 @@ export const SentTable = () => {
                     </tr>
                 </thead>
                 <tbody>
+
                     {
                         sortedData().map((order, i) => {
                             return (
@@ -95,6 +97,8 @@ export const SentTable = () => {
                                 </tr>
                             )
                         })
+
+
                     }
 
                 </tbody>
