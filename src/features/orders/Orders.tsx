@@ -12,7 +12,7 @@ import { ErrorsTable } from "./errorsTable/ErrorsTable";
 
 export const Orders = () => {
     const dispatch = useAppDispatch()
-    // const orders = useAppSelector(state => state.order.orders)
+   
 
     useEffect(() => {
         dispatch(fetchOrders())
