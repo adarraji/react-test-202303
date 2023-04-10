@@ -9,6 +9,11 @@
     height: 1097px;
     width: 100%;
 
+    i {
+        font-size: 51px;
+        color: #D2D2D2;
+    }
+
     table {
         border-spacing: 0px;
 
@@ -55,6 +60,14 @@
         }
 
         tbody {
+            width: 100%;
+
+            .noItems {
+                font: normal normal normal 21px/28px Open Sans;
+                letter-spacing: 0px;
+                color: #CCCCCC;
+            }
+
             tr {
                 height: 70px;
 

@@ -2,10 +2,25 @@ import styles from "./sentTable.module.scss";
 import { useAppSelector } from "../../../app/hooks"
 import { useCallback, useState } from "react";
 
-export const SentTable = () => {
+type SentTableProps = {
+    data: [] | {
+        id: number;
+        order_id: number;
+        sent_dt: string;
+        sent_tm: string;
+        subject: {
+            title: string;
+            email: string;
+        };
+        type: string;
+    }[]
+}
 
-    const sent = useAppSelector(state => state.order.orders.orders_AAA.sent)
-    const data = [...sent, ...sent]
+export const SentTable = (props: SentTableProps) => {
+
+    const order = useAppSelector(state => state.order)
+
+    const data = props.data && [...props.data, ...props.data]
 
     type Data = typeof data
     type SortKeys = keyof Data[0]
@@ -38,6 +53,11 @@ export const SentTable = () => {
 
     }, [data, sortKey, sortOrder])
 
+    const changeSort = (key: SortKeys) => {
+        setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+        setSortkey(key)
+    }
+
     const headers: { key: SortKeys; label: string }[] = [
         { key: "sent_dt", label: "DATE & TIME" },
         { key: "subject", label: "SUBJECT" },
@@ -45,64 +65,64 @@ export const SentTable = () => {
         { key: "order_id", label: "ORDER #" },
     ]
 
-    const changeSort = (key: SortKeys) => {
-        setSortOrder(sortOrder === "asc" ? "desc" : "asc")
-        setSortkey(key)
-    }
-
-
     return (
         <div className={styles.table}>
-            <table>
-                <thead>
-                    <tr>
+            {order.loading && <i className="fal fa-circle-notch fa-spin" ></i>}
+            {!order.loading && order.error ? <div>Error: {order.error}</div> : null}
+            {!order.loading && order.orders ? (
+                <table>
+                    <thead>
+                        <tr>
+                            {
+                                headers.map(row => {
+                                    return <td key={row.key} onClick={() => changeSort(row.key)}>{row.label}</td>
+                                })
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
                         {
-                            headers.map(row => {
-                                return <td key={row.key} onClick={() => changeSort(row.key)}>{row.label}</td>
-                            })
+                            props.data.length === 0
+                                ? (
+                                    <div className={styles.noItems}>No Items</div>
+                                )
+                                : (
+                                    sortedData().map((order, i) => {
+                                        return (
+                                            <tr key={i}>
+                                                <td >
+                                                    <div>
+                                                        <div className={styles.date}>{order.sent_dt}</div>
+                                                        <div>{order.sent_tm}</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div >
+                                                        <div className={styles.title}>{order.subject.title}</div>
+                                                        <div> {order.subject.email}</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        {order.type}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        {order.order_id}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button>RESEND</button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                )
                         }
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {
-                        sortedData().map((order, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td >
-                                        <div>
-                                            <div className={styles.date}>{order.sent_dt}</div>
-                                            <div>{order.sent_tm}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div >
-                                            <div className={styles.title}>{order.subject.title}</div>
-                                            <div> {order.subject.email}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            {order.type}
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            {order.order_id}
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <button>RESEND</button>
-                                    </td>
-                                </tr>
-                            )
-                        })
-
-
-                    }
-
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            ) : null}
         </div>
     )
 }

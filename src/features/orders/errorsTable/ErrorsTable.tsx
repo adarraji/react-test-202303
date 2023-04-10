@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styles from "./errorsTable.module.scss";
-import Spinner from "./spinner/Spinner";
 
 
 export const ErrorsTable = () => {
@@ -14,7 +13,7 @@ export const ErrorsTable = () => {
     return (
         <div className={styles.table}>
             {
-                !showTable ? <Spinner />
+                !showTable ? <i className="fal fa-circle-notch fa-spin" ></i>
                     : <div >No Items</div>
             }
 
