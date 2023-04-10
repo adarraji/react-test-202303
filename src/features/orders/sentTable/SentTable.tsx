@@ -1,26 +1,72 @@
 import styles from "./sentTable.module.scss";
-import {  useAppSelector } from "../../../app/hooks"
+import { useAppSelector } from "../../../app/hooks"
+import { useCallback, useState, MouseEventHandler } from "react";
 
 export const SentTable = () => {
-    // const dispatch = useAppDispatch()
-    const sent = useAppSelector(state => state.order.orders.orders_AAA?.sent)
+
+    const data = useAppSelector(state => state.order.orders.orders_AAA.sent)
+
+    type Data = typeof data
+    type SortKeys = keyof Data[0]
+    type SortOrder = "asc" | "desc"
+
+    const [sortKey, setSortkey] = useState<SortKeys>("id")
+    const [sortOrder, setSortOrder] = useState<SortOrder>("asc")
+
+    type SortData = {
+        tableData: Data;
+        sortKey: SortKeys;
+        reverse: boolean;
+    }
+
+    const sortData = ({ tableData, sortKey, reverse, }: {
+        tableData: Data;
+        sortKey: SortKeys;
+        reverse: boolean;
+    }) => {
+        if (!sortKey) return tableData;
+
+        const sortedData = [...data].sort((a, b) => {
+            return a[sortKey] > b[sortKey] ? 1 : -1;
+        });
+
+        if (reverse) {
+            return sortedData.reverse();
+        }
+
+        return sortedData;
+    }
+
+    const sortedData = useCallback(() => sortData({ tableData: data, sortKey, reverse: sortOrder === "desc" }), [data, sortKey, sortOrder])
+
+    const headers: { key: SortKeys; label: string }[] = [
+        { key: "sent_dt", label: "DATE & TIME" },
+        { key: "subject", label: "SUBJECT" },
+        { key: "type", label: "COMMUNICATION TYPE" },
+        { key: "order_id", label: "ORDER #" },
+    ]
+
+    const changeSort = (key: SortKeys) => {
+        setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+        setSortkey(key)
+    }
+
 
     return (
         <div className={styles.table}>
             <table>
                 <thead>
                     <tr>
-                        <td >DATE & TIME</td>
-                        <td>SUBJECT</td>
-                        <td>COMMUNICATION TYPE</td>
-                        <td>ORDER #</td>
-                        <td></td>
+                        {
+                            headers.map(row => {
+                                return <td key={row.key} onClick={() => changeSort(row.key)}>{row.label}</td>
+                            })
+                        }
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        sent &&
-                        sent.map((order, i) => {
+                        sortedData().map((order, i) => {
                             return (
                                 <tr key={i}>
                                     <td >
