@@ -95,24 +95,20 @@ export const SentTable = (props: SentTableProps) => {
                                                 <td >
                                                     <div>
                                                         <div className={styles.date}>{order.sent_dt}</div>
-                                                        <div>{order.sent_tm}</div>
+                                                        <div >{order.sent_tm}</div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div >
-                                                        <div className={styles.title}>{order.subject.title}</div>
-                                                        <div> {order.subject.email}</div>
+                                                        <div className={`${styles.title} ${styles.ellipsis400}`} >{order.subject.title}</div>
+                                                        <div className={styles.ellipsis400}> {order.subject.email}</div>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div>
-                                                        {order.type}
-                                                    </div>
+                                                    <div className={styles.ellipsis150}>{order.type}</div>
                                                 </td>
                                                 <td>
-                                                    <div>
-                                                        {order.order_id}
-                                                    </div>
+                                                    <div className={styles.ellipsis150}>{order.order_id}</div>
                                                 </td>
                                                 <td>
                                                     <button>RESEND</button>

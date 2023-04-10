@@ -4,6 +4,21 @@
     gap: 6px;
 }
 
+.ellipsis400 {
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width: 400px;
+}
+
+.ellipsis150 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+
 
 .table {
     height: 1097px;
@@ -98,7 +113,8 @@
                             opacity: 1;
                         }
 
-                        .title {
+                        .title {                           
+
                             text-align: left;
                             font: normal normal normal 16px/22px Open Sans;
                             letter-spacing: 0px;
