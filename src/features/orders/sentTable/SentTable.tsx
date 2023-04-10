@@ -1,6 +1,6 @@
 import styles from "./sentTable.module.scss";
 import { useAppSelector } from "../../../app/hooks"
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 type SentTableProps = {
     data: [] | {
@@ -20,7 +20,9 @@ export const SentTable = (props: SentTableProps) => {
 
     const order = useAppSelector(state => state.order)
 
-    const data = props.data && [...props.data, ...props.data]
+    const data = useMemo(() => (props.data && [...props.data, ...props.data]), [props.data])
+
+
 
     type Data = typeof data
     type SortKeys = keyof Data[0]
