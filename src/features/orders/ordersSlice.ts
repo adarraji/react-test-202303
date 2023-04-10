@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
+
 export type Orders = {
-    orders_A?: []
-    orders_AA?: []
-    orders_AAA?: {
-        sent?: {
+    orders_A: []
+    orders_AA: []
+    orders_AAA: {
+        sent: {
             id: number
             order_id: number
             sent_dt: string
@@ -17,8 +18,8 @@ export type Orders = {
             type: string
         }[]
     }
-    orders_B?: []
-    orders_C?: []
+    orders_B: []
+    orders_C: []
 }
 
 type InitialState = {
@@ -29,7 +30,27 @@ type InitialState = {
 
 const initialState: InitialState = {
     loading: false,
-    orders: {},
+    orders: {
+        orders_A: [],
+        orders_AA: [],
+        orders_AAA: {
+            sent: [
+                {
+                    id: 0,
+                    order_id: 0,
+                    sent_dt: "",
+                    sent_tm: "",
+                    subject: {
+                        title: "",
+                        email: "",
+                    },
+                    type: ""
+                }
+            ]
+        },
+        orders_B: [],
+        orders_C: []
+    },
     error: ""
 }
 
@@ -54,7 +75,7 @@ const orderSlice = createSlice({
         })
         builder.addCase(fetchOrders.rejected, (state, action) => {
             state.loading = false
-            state.orders = {}
+            state.orders = initialState.orders
             state.error = action.error.message || "Something went wrong"
         })
     }
