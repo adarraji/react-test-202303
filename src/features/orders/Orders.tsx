@@ -10,9 +10,10 @@ import { ErrorsTable } from "./errorsTable/ErrorsTable";
 
 
 
+
 export const Orders = () => {
     const dispatch = useAppDispatch()
-   
+
 
     useEffect(() => {
         dispatch(fetchOrders())
@@ -30,7 +31,7 @@ export const Orders = () => {
                 <TabPane title="Orders AAA">
                     <Tabs tabType={"subTabs"} preSelectedTabIndex={0}>
                         <TabPane title="SENT">
-                            <SentTable/>
+                            <SentTable />
                         </TabPane>
                         <TabPane title="ERRORS">
                             <ErrorsTable />
